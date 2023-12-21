@@ -1,6 +1,3 @@
-# Documentation: https://docs.brew.sh/Formula-Cookbook
-#                https://rubydoc.brew.sh/Formula
-# PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 class Pineboot < Formula
   desc "A Shell application for different framework structure generation"
   homepage "https://github.com/cleverpine/PineBoot"
@@ -11,7 +8,10 @@ class Pineboot < Formula
   # depends_on "cmake" => :build
 
   def install
-    bin.install "main_menu.sh" => "pineboot"
+    # Unpack all files from the tar.gz
+    libexec.install Dir["*"]
+    # Create a symlink for main_menu.sh in bin directory as 'pineboot'
+    bin.write_exec_script (libexec/"main_menu.sh")
   end
 
   test do
