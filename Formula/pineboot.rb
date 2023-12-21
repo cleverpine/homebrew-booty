@@ -5,13 +5,13 @@ class Pineboot < Formula
   sha256 "5be2514b3b1543a11b82d9d9f5a4714f26947f76fb92d154636c4f40e0ffd7b8"
   license "MIT"
 
-  # depends_on "cmake" => :build
-
   def install
-    # Unpack all files from the tar.gz
     libexec.install Dir["*"]
-    # Create a symlink for main_menu.sh in bin directory as 'pineboot'
-    bin.write_exec_script (libexec/"main_menu.sh")
+    (bin/"pineboot").write <<~EOS
+      #!/bin/bash
+      cd "#{libexec}"
+      ./main_menu.sh "$@"
+    EOS
   end
 
   test do
