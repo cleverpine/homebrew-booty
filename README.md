@@ -1,10 +1,10 @@
-# Cleverpine Pineboot
+# Cleverpine Booty
 
 ## How do I install these formulae?
 
-`brew install cleverpine/pineboot/<formula>`
+`brew install cleverpine/booty/<formula>`
 
-Or `brew tap cleverpine/pineboot` and then `brew install <formula>`.
+Or `brew tap cleverpine/booty` and then `brew install <formula>`.
 
 ## Documentation
 
