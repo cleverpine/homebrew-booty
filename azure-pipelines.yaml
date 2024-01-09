@@ -18,11 +18,10 @@ steps:
     
     # Clone the repository
     git clone https://github.com/cleverpine/Booty.git
-    cd Booty
     
     # Update the booty.rb file
-    sed -i "s|url \".*\"|url \"https://github.com/cleverpine/Booty/archive/refs/tags/$APP_VERSION.tar.gz\"|g" booty.rb
-    sed -i "s|sha256 \".*\"|sha256 \"$(curl -sL https://github.com/cleverpine/Booty/archive/refs/tags/$APP_VERSION.tar.gz | sha256sum | awk '{print $1}')\"|g" booty.rb
+    sed -i "s|url \".*\"|url \"https://github.com/cleverpine/Booty/archive/refs/tags/$APP_VERSION.tar.gz\"|g" ./Booty/booty.rb
+    sed -i "s|sha256 \".*\"|sha256 \"$(curl -sL https://github.com/cleverpine/Booty/archive/refs/tags/$APP_VERSION.tar.gz | sha256sum | awk '{print $1}')\"|g" ./Booty/booty.rb
     
     # Commit and push the changes
     git config user.email "dobry989@gmail.com"
