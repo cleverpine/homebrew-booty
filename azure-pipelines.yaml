@@ -16,7 +16,6 @@ pool:
 
 steps:
 - download: pipeline
-  source: SecondPipeline
   artifact: appVersionArtifact
   displayName: 'Download appVersion Artifact'
 
