@@ -1,16 +1,3 @@
-resources:
-  pipelines:
-  - pipeline: BootyPipeLine
-    project: CleverPine Platform
-    source: cleverpine.Booty
-    trigger: 
-      branches:
-        include:
-        - '*'
-
-
-
-
 pool:
   vmImage: 'ubuntu-latest'
 
