@@ -26,9 +26,11 @@ steps:
     sed -i "s|sha256 \".*\"|sha256 \"$SHA256\"|" booty.rb
     
     # Commit and push the changes
-    git config user.email "dobry989@gmail.com"
-    git config user.name "bovf"
+    git config --global user.email "dobry989@gmail.com"
+    git config --global user.name "bovf"
+    git config --global http.extraHeader 'AUTHORIZATION: basic $(echo -n username:$(github-Dobry-PAT) | base64)'
     git add booty.rb
     git commit -m "Update url & sha256 for $APP_VERSION"
     git push origin main
   displayName: 'Update booty.rb File'
+
