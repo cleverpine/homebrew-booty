@@ -2,10 +2,16 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- download: current
-  artifact: appVersionArtifact
-  displayName: 'Download appVersion Artifact'
-
+- task: DownloadPipelineArtifact@2
+  inputs:
+    buildType: 'specific'
+    project: '74b820ea-724d-493e-8f4a-a339c5e771b5'
+    definition: '435'
+    specificBuildWithTriggering: true
+    buildVersionToDownload: 'latest'
+    artifactName: 'appVersionArtifact'
+    targetPath: '$(Pipeline.Workspace)'
+    
 - script: |
     APP_VERSION=$(cat appVersion.txt)
     echo "App version: $APP_VERSION"
