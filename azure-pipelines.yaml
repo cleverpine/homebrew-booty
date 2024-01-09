@@ -17,7 +17,7 @@ steps:
     echo "App version: $APP_VERSION"
     
     # Clone the repository
-    git clone https://github.com/cleverpine/Booty.git
+    git clone https://github.com/cleverpine/homebrew-booty.git
     find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
     
     # Update the booty.rb file
