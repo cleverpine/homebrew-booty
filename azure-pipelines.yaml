@@ -1,0 +1,31 @@
+trigger: none
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- download: pipeline
+  source: SecondPipeline
+  artifact: appVersionArtifact
+  displayName: 'Download appVersion Artifact'
+
+- script: |
+    APP_VERSION=$(cat appVersion.txt)
+    echo "App version: $APP_VERSION"
+    
+    # Clone the repository
+    git clone https://github.com/cleverpine/Booty.git
+    cd Booty
+    
+    # Update the booty.rb file
+    sed -i "s|url \".*\"|url \"https://github.com/cleverpine/Booty/archive/refs/tags/$APP_VERSION.tar.gz\"|g" booty.rb
+    sed -i "s|sha256 \".*\"|sha256 \"$(curl -sL https://github.com/cleverpine/Booty/archive/refs/tags/$APP_VERSION.tar.gz | sha256sum | awk '{print $1}')\"|g" booty.rb
+    
+    # Commit and push the changes
+    # git config user.email "you@example.com"
+    # git config user.name "Your Name"
+    git add booty.rb
+    git commit -m "Update url & sha256 for $APP_VERSION"
+    git push origin main
+  displayName: 'Update booty.rb File'
+
