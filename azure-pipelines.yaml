@@ -1,4 +1,15 @@
-trigger: none
+resources:
+  pipelines:
+  - pipeline: BootyPipeLine
+    project: CleverPine Platform
+    source: cleverpine.Booty
+    trigger: 
+      branches:
+        include:
+        - cicd
+
+
+
 
 pool:
   vmImage: 'ubuntu-latest'
