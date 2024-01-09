@@ -2,7 +2,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- download: pipeline
+- download: cleverpine.Booty
   artifact: appVersionArtifact
   displayName: 'Download appVersion Artifact'
 
