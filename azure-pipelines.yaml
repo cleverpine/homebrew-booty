@@ -24,8 +24,8 @@ steps:
     cd homebrew-booty/Formula
     
     # Update the booty.rb file
-    sed -i "s|url \".*\"|url \"https://github.com/cleverpine/Booty/archive/refs/tags/v$APP_VERSION.tar.gz\"|" booty.rb
-    SHA256=$(curl -sL "https://github.com/cleverpine/Booty/archive/refs/tags/v$APP_VERSION.tar.gz" | sha256sum | awk '{print $1}')
+    sed -i "s|url \".*\"|url \"https://github.com/cleverpine/Booty/archive/refs/tags/$APP_VERSION.tar.gz\"|" booty.rb
+    SHA256=$(curl -sL "$APP_VERSION.tar.gz" | sha256sum | awk '{print $1}')
     sed -i "s|sha256 \".*\"|sha256 \"$SHA256\"|" booty.rb
     
     # Commit and push the changes
