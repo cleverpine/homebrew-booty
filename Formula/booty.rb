@@ -1,7 +1,7 @@
 class Booty < Formula
   desc "A Shell application for different framework structure generation"
   homepage "https://github.com/cleverpine/PineBoot"
-  url "https://github.com/cleverpine/Booty/archive/refs/tags/0.0.4.tar.gz"
+  url "https://github.com/cleverpine/Booty/archive/refs/tags/v0.0.4.tar.gz"
   sha256 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   license "MIT"
 
