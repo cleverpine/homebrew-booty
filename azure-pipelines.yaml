@@ -1,6 +1,5 @@
 trigger: none
 
-
 pool:
   vmImage: 'ubuntu-latest'
 
@@ -24,9 +23,17 @@ steps:
     cd homebrew-booty/Formula
     
     # Update the booty.rb file
-    sed -i "s|url \".*\"|url \"https://github.com/cleverpine/Booty/archive/refs/tags/$APP_VERSION.tar.gz\"|" booty.rb
-    SHA256=$(curl -sL "$APP_VERSION.tar.gz" | sha256sum | awk '{print $1}')
+    TAR_GZ_URL="https://github.com/cleverpine/Booty/archive/refs/tags/$APP_VERSION.tar.gz"
+
+    # Update the booty.rb file with the new URL
+    sed -i "s|url \".*\"|url \"$TAR_GZ_URL\"|" booty.rb
+
+    # Calculate the SHA256 checksum of the downloaded file
+    SHA256=$(curl -sL "$TAR_GZ_URL" | sha256sum | awk '{print $1}')
+
+    # Update the booty.rb file with the new SHA256 checksum
     sed -i "s|sha256 \".*\"|sha256 \"$SHA256\"|" booty.rb
+
     
     # Commit and push the changes
     git config --global user.email "ilian@cleverpine.com"
