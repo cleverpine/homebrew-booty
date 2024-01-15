@@ -14,6 +14,6 @@ class Booty < Formula
   end
 
   test do
-    # Test block to be updated with a suitable test for the application
-  end
+    # Test a simple command that should succeed and return exit status 0
+    system "#{bin}/booty", "--version"
 end
