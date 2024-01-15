@@ -16,4 +16,5 @@ class Booty < Formula
   test do
     # Test a simple command that should succeed and return exit status 0
     system "#{bin}/booty", "--version"
+  end
 end
