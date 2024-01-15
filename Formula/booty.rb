@@ -9,12 +9,12 @@ class Booty < Formula
     libexec.install Dir["*"]
     (bin/"booty").write <<~EOS
       #!/bin/bash
-      cd "#{libexec}"
-      ./main_menu.sh "$@"
+      "#{libexec}/main_menu.sh" "$@"
     EOS
   end
 
   test do
-    # Test block to be updated with a suitable test for the application
+    # Test a simple command that should succeed and return exit status 0
+    system "#{bin}/booty", "--version"
   end
 end
