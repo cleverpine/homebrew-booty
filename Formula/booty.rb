@@ -9,8 +9,7 @@ class Booty < Formula
     libexec.install Dir["*"]
     (bin/"booty").write <<~EOS
       #!/bin/bash
-      cd "#{libexec}"
-      ./main_menu.sh "$@"
+      "#{libexec}/main_menu.sh" "$@"
     EOS
   end
 
