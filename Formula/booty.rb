@@ -6,7 +6,7 @@ class Booty < Formula
   license "MIT"
 
   def install
-    libexec.install Dir["*"]
+    libexec.install Dir["*", ".mvn"]
     (bin/"booty").write <<~EOS
       #!/bin/bash
       "#{libexec}/main_menu.sh" "$@"
