@@ -1,8 +1,8 @@
 class Booty < Formula
   desc "A Shell application for different framework structure generation"
   homepage "https://github.com/cleverpine/Booty"
-  url "https://github.com/cleverpine/Booty/archive/refs/tags/v0.0.13.tar.gz"
-  sha256 "8d3edc19b7a6fae7c208be90d4e2520c78c17325f71d94ae1bd52c8db3ba320e"
+  url "https://github.com/cleverpine/Booty/archive/refs/tags/v0.0.14.tar.gz"
+  sha256 "58f81d700380c17aad05bae69e2b6b3776ef604320a4f97fbee8f1c9aefabee8"
   license "MIT"
 
   def install
